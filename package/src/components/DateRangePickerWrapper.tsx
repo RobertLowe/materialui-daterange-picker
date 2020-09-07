@@ -19,7 +19,6 @@ const useStyles = makeStyles(() => ({
   },
   dateRangeBackdrop: {
     position: 'fixed',
-    height: '100vh',
     width: '100vw',
     bottom: 0,
     zIndex: 0,
