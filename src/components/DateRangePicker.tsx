@@ -30,7 +30,6 @@ export const MARKERS: { [key: string]: Marker } = {
 };
 
 interface DateRangePickerProps {
-  open: boolean;
   initialDateRange?: DateRange;
   definedRanges?: DefinedRange[];
   minDate?: Date | string;
@@ -44,7 +43,6 @@ const DateRangePicker: React.FunctionComponent<DateRangePickerProps> = (
   const today = new Date();
 
   const {
-    open,
     onChange,
     initialDateRange,
     minDate,
@@ -151,7 +149,7 @@ const DateRangePicker: React.FunctionComponent<DateRangePickerProps> = (
     onMonthNavigate,
   };
 
-  return open ? (
+  return (
     <Menu
       dateRange={dateRange}
       minDate={minDateValid}
@@ -165,7 +163,7 @@ const DateRangePicker: React.FunctionComponent<DateRangePickerProps> = (
       helpers={helpers}
       handlers={handlers}
     />
-  ) : null;
+  );
 };
 
 export default DateRangePicker;
