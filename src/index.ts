@@ -1,8 +1,4 @@
 import DateRangePicker from './components/DateRangePicker';
-import { DateRange, DefinedRange } from './types';
-
-export {
-  DateRangePicker,
-  DefinedRange,
-  DateRange,
-};
+import DateRangePickerInput from './components/DateRangePickerInput';
+export { DateRangePickerInput };
+export default DateRangePicker;

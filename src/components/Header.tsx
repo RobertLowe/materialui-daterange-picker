@@ -70,12 +70,12 @@ const Header: React.FunctionComponent<HeaderProps> = ({
 }: HeaderProps) => {
   const classes = useStyles();
 
-  const handleMonthChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
-    setDate(setMonth(date, parseInt(event.target.value)));
+  const handleMonthChange = (event: React.ChangeEvent<any>) => {
+    setDate(setMonth(date, parseInt(event.target.value as any)));
   };
 
-  const handleYearChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
-    setDate(setYear(date, parseInt(event.target.value)));
+  const handleYearChange = (event: React.ChangeEvent<any>) => {
+    setDate(setYear(date, parseInt(event.target.value as any)));
   };
 
   return (
@@ -85,6 +85,7 @@ const Header: React.FunctionComponent<HeaderProps> = ({
           className={classes.icon}
           disabled={prevDisabled}
           onClick={onClickPrevious}
+          aria-label="previous"
         >
           <ChevronLeft color={prevDisabled ? 'disabled' : 'action'} />
         </IconButton>
@@ -119,7 +120,12 @@ const Header: React.FunctionComponent<HeaderProps> = ({
         {/* <Typography>{format(date, "MMMM YYYY")}</Typography> */}
       </Grid>
       <Grid item className={classes.iconContainer}>
-        <IconButton className={classes.icon} disabled={nextDisabled} onClick={onClickNext}>
+        <IconButton
+          className={classes.icon}
+          disabled={nextDisabled}
+          onClick={onClickNext}
+          aria-label="next"
+        >
           <ChevronRight color={nextDisabled ? 'disabled' : 'action'} />
         </IconButton>
       </Grid>

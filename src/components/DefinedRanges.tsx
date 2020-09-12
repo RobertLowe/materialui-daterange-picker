@@ -25,7 +25,7 @@ const DefinedRanges: React.FunctionComponent<DefinedRangesProps> = ({
   setRange,
   selectedRange,
 }: DefinedRangesProps) => (
-  <List>
+  <List component="nav">
     {ranges.map((range, idx) => (
       // eslint-disable-next-line react/no-array-index-key
       <ListItem button key={idx} onClick={() => setRange(range)}>

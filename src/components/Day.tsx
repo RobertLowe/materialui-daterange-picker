@@ -88,6 +88,7 @@ const Day: React.FunctionComponent<DayProps> = ({
         disabled={disabled}
         onClick={onClick}
         onMouseOver={onHover}
+        aria-label="previous"
       >
         <Typography
           color={!disabled ? 'textPrimary' : 'textSecondary'}

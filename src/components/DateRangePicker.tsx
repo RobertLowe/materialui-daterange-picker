@@ -13,7 +13,6 @@ import {
   max,
   min,
 } from 'date-fns';
-
 // eslint-disable-next-line no-unused-vars
 import { DateRange, NavigationAction, DefinedRange } from '../types';
 import { getValidatedMonths, parseOptionalDate } from '../utils';
@@ -29,16 +28,18 @@ export const MARKERS: { [key: string]: Marker } = {
   SECOND_MONTH: Symbol('secondMonth'),
 };
 
-interface DateRangePickerProps {
+interface IDateRangePickerProps {
   initialDateRange?: DateRange;
   definedRanges?: DefinedRange[];
   minDate?: Date | string;
   maxDate?: Date | string;
+  useStyles?: any;
   onChange: (dateRange: DateRange) => void;
 }
 
-const DateRangePicker: React.FunctionComponent<DateRangePickerProps> = (
-  props: DateRangePickerProps,
+
+const DateRangePicker: React.FunctionComponent<IDateRangePickerProps> = (
+  props: IDateRangePickerProps,
 ) => {
   const today = new Date();
 
@@ -47,7 +48,7 @@ const DateRangePicker: React.FunctionComponent<DateRangePickerProps> = (
     initialDateRange,
     minDate,
     maxDate,
-    definedRanges = defaultRanges,
+    definedRanges = defaultRanges
   } = props;
 
   const minDateValid = parseOptionalDate(minDate, addYears(today, -10));
