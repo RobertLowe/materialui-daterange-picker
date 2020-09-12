@@ -24,6 +24,7 @@ interface IDateRangePickerInputProps {
   minDate?: Date | string;
   maxDate?: Date | string;
   textFieldProps?: TextFieldProps;
+  showStartAdornment?: boolean;
   onChange: (dateRange: DateRange) => void;
 }
 
@@ -34,6 +35,7 @@ const DateRangePickerInput: React.FunctionComponent<IDateRangePickerInputProps> 
     onChange,
     initialDateRange,
     textFieldProps,
+    showStartAdornment = false,
     minDate,
     maxDate,
     definedRanges = defaultRanges
@@ -63,6 +65,7 @@ const DateRangePickerInput: React.FunctionComponent<IDateRangePickerInputProps> 
 
   const handleOnChange = (event: any) => {
     setDateRange(event);
+    onChange(event);
   }
 
   const clearDateRange = (event: any) => {
@@ -83,11 +86,13 @@ const DateRangePickerInput: React.FunctionComponent<IDateRangePickerInputProps> 
             value={inputValue(dateRange)}
             InputProps={{
               startAdornment:
-                <InputAdornment position="start" {...bindTrigger(popupState)}>
-                  <IconButton aria-label="date-picker-calendar">
-                    <DateRangeIcon />
-                  </IconButton>
-                </InputAdornment>,
+                showStartAdornment ?
+                  <InputAdornment position="start" {...bindTrigger(popupState)}>
+                    <IconButton aria-label="date-picker-calendar">
+                      <DateRangeIcon />
+                    </IconButton>
+                  </InputAdornment>
+                  : null,
               endAdornment: 
                 <InputAdornment position="end">
                   <IconButton aria-label="date-picker-clear" onClick={clearDateRange}>

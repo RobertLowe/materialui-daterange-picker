@@ -60,9 +60,11 @@ storiesOf('Material Ui', module)
       return (
         <ThemeProvider theme={muiTheme}>
           <DateRangePickerInput
+            showStartAdornment={false}
             textFieldProps={{
               variant: "outlined",
-              label: " Date "
+              // label: " Date ",
+              placeholder: "Datey"
             }}
             onChange={(a: any)=>{console.log("Change", a)}}
           />
